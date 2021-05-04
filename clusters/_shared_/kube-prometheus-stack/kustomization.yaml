@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kube-system
+#resources:
+#  - release.yaml
+
+generatorOptions:
+  # labels to add to all generated resources
+  labels:
+    grafana_dashboard: "1"
+  # disableNameSuffixHash is true disables the default behavior of adding a
+  # suffix to the names of generated resources that is a hash of
+  # the resource contents.
+  disableNameSuffixHash: true
+
+configMapGenerator:
+  - name: grafana-dashboard-1
+    files:
+      - grafana-dashboards/control-plane.json
+  - name: grafana-dashbard-2
+    files:
+      - grafana-dashboards/cluster.json
+  - name: grafana-dashbard-3
+    files:
+      - grafana-dashboards/node-exporter-full_rev22.json
