@@ -6,7 +6,6 @@ metadata:
 spec:
   dependsOn:
     - name: sources
-    - name: namespaces
   interval: 0h5m0s
   sourceRef:
     kind: GitRepository
