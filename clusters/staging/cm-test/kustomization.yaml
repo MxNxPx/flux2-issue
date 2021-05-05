@@ -1,15 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: kube-system
-resources:
-#  - release.yaml
 
 generatorOptions:
   # labels to add to all generated resources
   labels:
     grafana_dashboard: "1"
-#  annotations:
-#    kubectl.kubernetes.io/last-applied-configuration: "removed-by-flux"
   # disableNameSuffixHash is true disables the default behavior of adding a
   # suffix to the names of generated resources that is a hash of
   # the resource contents.
@@ -18,28 +14,10 @@ generatorOptions:
 configMapGenerator:
   - name: grafana-dashboard-1
     files:
-      - ../../_shared_/kube-prometheus-stack-base/grafana-dashboards/control-plane.json
+      - kube-prometheus-stack-base/grafana-dashboards/control-plane.json
   - name: grafana-dashbard-2
     files:
-      - ../../_shared_/kube-prometheus-stack-base/grafana-dashboards/cluster.json
+      - kube-prometheus-stack-base/grafana-dashboards/cluster.json
   - name: grafana-dashbard-3
     files:
-      - ../../_shared_/kube-prometheus-stack-base/grafana-dashboards/node-exporter-full_rev22.json
-
-patchesJSON6902:
-- target:
-    version: v1
-    kind: ConfigMap
-    name: grafana-dashboard-3
-    namespace: kube-system
-  patch: |-
-    - op: replace
-      path: /metadata/annotations
-      value:
-        - kubectl.kubernetes.io/last-applied-configuration: "removed-by-flux"
-
-
-#secretGenerator:
-#- name: additional-scrape-configs
-#  files:
-#  - prometheus-additionalScrapeConfig.yaml
+      - kube-prometheus-stack-base/grafana-dashboards/node-exporter-full_rev22.json
