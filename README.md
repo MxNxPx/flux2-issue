@@ -4,9 +4,6 @@
 # flux2-issue
 
 Steps to reproduce flux issue
-=======
-Steps to reproduce issue
->>>>>>> 972ca18fa80b5d19aa1cd8b766683cbb7143a799
 ```sh
 export GITHUB_TOKEN GITHUB_REPO GITHUB_USER GITHUB_PWD
 
@@ -28,7 +25,6 @@ flux bootstrap git \
 
 flux get sources all; kubectl get ks,hr; kubectl get po -A
 ```
-<<<<<<< HEAD
 
 
 Straight kustomize with 'kubectl apply -f' also fails
@@ -77,5 +73,3 @@ kubectl get cm -n kube-system -l grafana_dashboard=1
 #configmap/grafana-dashboard-2 replaced
 #configmap/grafana-dashboard-3 replaced
 ```
-=======
->>>>>>> 972ca18fa80b5d19aa1cd8b766683cbb7143a799
