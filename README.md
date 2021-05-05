@@ -1,8 +1,5 @@
 # flux2-issue
 
-<<<<<<< HEAD
-# flux2-issue
-
 Steps to reproduce flux issue
 ```sh
 export GITHUB_TOKEN GITHUB_REPO GITHUB_USER GITHUB_PWD
