@@ -29,8 +29,11 @@ flux get sources all; kubectl get ks,hr; kubectl get po -A
 Straight kustomize with 'kubectl apply -f' also fails
 
 ```sh
-## cd to the problem ks
-cd clusters/staging/cm-test
+## clone repo
+git clone https://github.com/MxNxPx/flux2-issue.git
+
+## cd to the problem ks location
+cd flux2-issue/clusters/staging/cm-test
 
 ## cleanup in case it exists
 kubectl get cm -n kube-system -l grafana_dashboard=1
